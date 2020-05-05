@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class watch_player : MonoBehaviour
+{
+    Transform player;
+    Vector3 playerVector;
+    void Start()
+    {
+        player = GameObject.Find("hero").transform;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        playerVector = player.position;
+        playerVector.z = -10;
+        transform.position = Vector3.Lerp(transform.position, playerVector, 3 * Time.deltaTime);
+    }
+}
